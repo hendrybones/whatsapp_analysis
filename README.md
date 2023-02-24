@@ -5,7 +5,7 @@ such as
 * pandas 
 * numpy
 * matplotlib
-* ```
+```
 import regex
 import pandas as pd
 import numpy as np
