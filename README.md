@@ -13,10 +13,10 @@ import emoji
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-
-### Step 2 
-### Add python functions
-ef date_time(s):
+```
+#### Step 2 
+#### Add python functions
+```def date_time(s):
     pattern = '^([0-9]+)(\/)([0-9]+)(\/)([0-9]+), ([0-9]+):([0-9]+)[ ]?(AM|PM|am|pm)? -'
     result = regex.match(pattern, s)
     if result:
@@ -40,8 +40,10 @@ def getDatapoint(line):
     else:
         author= None
     return date, time, author, message
-    
-   ## importing data 
+   ```
+
+  ###  importing data 
+ ```
    
    data = []
 conversation = 'WhatsApp Chat with NSSF INTERNS.txt'
@@ -63,8 +65,10 @@ with open(conversation, encoding="utf-8") as fp:
         else:
         
             messageBuffer.append(line)
+ ```
             
-     ## Take a look of the data
+ ### Take a look of the data
+ ```
      df = pd.DataFrame(data, columns=["Date", 'Time', 'Author', 'Message'])
 df['Date'] = pd.to_datetime(df['Date'])
 print(df.tail(20))
