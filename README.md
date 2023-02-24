@@ -74,3 +74,24 @@ df['Date'] = pd.to_datetime(df['Date'])
 print(df.tail(20))
 print(df.info())
 print(df.Author.unique())
+
+### Number of whatsapp messages
+```
+total_messages = df.shape[0]
+print(total_messages)
+
+### Number of media messages
+```
+media_messages = df[df["Message"]=='<Media omitted>'].shape[0]
+print(media_messages)
+```
+### Find the number of emoji present in whatsapp chats and final insights
+```
+URLPATTERN = r'(https?://\S+)'
+df['urlcount'] = df.Message.apply(lambda x: regex.findall(URLPATTERN, x)).str.len()
+links = np.sum(df.urlcount)
+print("Chats between +254 729 205284 and +254 729 940288")
+print("Total Messages: ", total_messages)
+print("Number of Media Shared: ", media_messages)
+print("Number of Emojis Shared", emojis)
+print("Number of Links Shared", links
